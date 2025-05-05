@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
-      <div className="text-2xl font-bold tracking-wider">FitZone</div>
+      <div className="text-2xl font-bold tracking-wider">Evolvium</div>
 
       <div className="md:hidden">
         <button onClick={() => setIsOpen(!isOpen)}>
