@@ -10,7 +10,7 @@ const Profile = () => {
       
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-6 md:px-12">
-        <h1 className="text-3xl font-bold mb-6 text-center md:text-left">👤 Your Profile</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Your Profile</h1>
 
         <div className="bg-gray-800 p-6 rounded-xl shadow-lg max-w-xl mx-auto">
           <div className="flex justify-center mb-6">

@@ -16,15 +16,15 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           <div className="bg-gray-800 p-4 rounded-xl shadow-md text-center">
-            <p className="text-lg font-semibold">👣 Steps Today</p>
+            <p className="text-lg font-semibold">Steps Today</p>
             <h2 className="text-3xl font-bold mt-2">5,230</h2>
           </div>
           <div className="bg-gray-800 p-4 rounded-xl shadow-md text-center">
-            <p className="text-lg font-semibold">🔥 Calories Burned</p>
+            <p className="text-lg font-semibold">Calories Burned</p>
             <h2 className="text-3xl font-bold mt-2">372 kcal</h2>
           </div>
           <div className="bg-gray-800 p-4 rounded-xl shadow-md text-center">
-            <p className="text-lg font-semibold">📅 Streak</p>
+            <p className="text-lg font-semibold">Streak</p>
             <h2 className="text-3xl font-bold mt-2">7 Days</h2>
           </div>
         </div>

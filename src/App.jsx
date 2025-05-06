@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import "./index.css"
 import Home from './Home';
@@ -9,7 +9,7 @@ import Profile from './Profile';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,7 +17,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

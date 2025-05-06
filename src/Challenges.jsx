@@ -5,28 +5,28 @@ const Challenges = () => {
   const [challenges, setChallenges] = useState([
     {
       id: 1,
-      title: '🏃‍♂️ Run 2km',
+      title: 'Run 2km',
       description: 'Complete a 2km run to boost your endurance.',
       type: 'Cardio',
       completed: false,
     },
     {
       id: 2,
-      title: '💪 50 Pushups',
+      title: '50 Pushups',
       description: 'Do 50 pushups to strengthen your upper body.',
       type: 'Strength',
       completed: false,
     },
     {
       id: 3,
-      title: '🧘 10-Min Meditation',
+      title: '10-Min Meditation',
       description: 'Relax your mind with 10 minutes of guided meditation.',
       type: 'Mindfulness',
       completed: true,
     },
     {
       id: 4,
-      title: '🚶 5000 Steps',
+      title: '5000 Steps',
       description: 'Hit your daily step goal to stay active.',
       type: 'Daily Goal',
       completed: false,
@@ -46,7 +46,7 @@ const Challenges = () => {
      
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-6 md:px-12">
-        <h1 className="text-3xl font-bold mb-6 text-center md:text-left">🔥 Today's Challenges</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Today's Challenges</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.map(challenge => (
@@ -68,7 +68,7 @@ const Challenges = () => {
                       : 'bg-yellow-500 hover:bg-yellow-400'
                   }`}
                 >
-                  {challenge.completed ? 'Completed ✅' : 'Mark as Complete'}
+                  {challenge.completed ? 'Completed ' : 'Mark as Complete'}
                 </button>
               </div>
             </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
                 setShowDropdown(false);
               }}
             >
-              🚪 Logout
+              Logout
             </button>
           </div>
         )}
