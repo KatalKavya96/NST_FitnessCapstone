@@ -13,7 +13,6 @@ const Profile = () => {
         <h1 className="text-3xl font-bold mb-6 text-center md:text-left">👤 Your Profile</h1>
 
         <div className="bg-gray-800 p-6 rounded-xl shadow-lg max-w-xl mx-auto">
-          {/* Avatar */}
           <div className="flex justify-center mb-6">
             <img
               src="https://i.pravatar.cc/100"
@@ -22,9 +21,7 @@ const Profile = () => {
             />
           </div>
 
-          {/* Editable Fields */}
           <div className="space-y-6">
-            {/* Name Field */}
             <div>
               <label className="block text-sm text-gray-300 mb-1">Name</label>
               <input
@@ -35,7 +32,6 @@ const Profile = () => {
               />
             </div>
 
-            {/* Fitness Goal Field */}
             <div>
               <label className="block text-sm text-gray-300 mb-1">Fitness Goal</label>
               <input
@@ -46,11 +42,10 @@ const Profile = () => {
               />
             </div>
 
-            {/* Summary */}
             <div className="bg-gray-700 p-4 rounded-md text-sm text-gray-300">
-              <p><strong>Streak:</strong> 🔥 7 days</p>
-              <p><strong>Level:</strong> 🥇 Gold Challenger</p>
-              <p><strong>Recent Goal:</strong> {goal}</p>
+              <p><strong>Streak:</strong>7 days</p>
+              <p><strong>Level:</strong>Gold Challenger</p>
+              <p><strong>Recent Goal:</strong>{goal}</p>
             </div>
           </div>
         </div>

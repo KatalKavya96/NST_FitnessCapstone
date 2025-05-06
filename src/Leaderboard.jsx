@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 const Leaderboard = () => {
   const fakeLeaderboard = [
     { id: 1, name: 'Kavya', points: 1240, avatar: 'https://i.pravatar.cc/40?img=1' },
-    { id: 2, name: 'Riya', points: 1190, avatar: 'https://i.pravatar.cc/40?img=2' },
-    { id: 3, name: 'Aman', points: 1025, avatar: 'https://i.pravatar.cc/40?img=3' },
-    { id: 4, name: 'Nikhil', points: 890, avatar: 'https://i.pravatar.cc/40?img=4' },
-    { id: 5, name: 'Sneha', points: 870, avatar: 'https://i.pravatar.cc/40?img=5' },
+    { id: 2, name: 'Satya', points: 1190, avatar: 'https://i.pravatar.cc/40?img=2' },
+    { id: 3, name: 'Ankit', points: 1025, avatar: 'https://i.pravatar.cc/40?img=3' },
+    { id: 4, name: 'Chaitanya', points: 890, avatar: 'https://i.pravatar.cc/40?img=4' },
+    { id: 5, name: 'Pratyush', points: 870, avatar: 'https://i.pravatar.cc/40?img=5' },
   ];
 
   return (
