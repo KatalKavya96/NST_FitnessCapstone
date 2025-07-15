@@ -25,7 +25,7 @@ const Leaderboard = () => {
             >
               <div className="flex items-center space-x-4">
                 <span className="text-lg font-bold w-6">{index + 1}</span>
-                <img src={user.avatar} alt="avatar" className="w-10 h-10 rounded-full" />
+                <img src={user.avatar}  className="w-10 h-10 rounded-full" />
                 <p className="text-base font-medium">{user.name}</p>
               </div>
               <p className="text-sm font-semibold">{user.points} pts</p>

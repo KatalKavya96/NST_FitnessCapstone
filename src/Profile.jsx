@@ -16,7 +16,6 @@ const Profile = () => {
           <div className="flex justify-center mb-6">
             <img
               src="https://i.pravatar.cc/100"
-              alt="Avatar"
               className="rounded-full w-24 h-24 border-4 border-blue-500"
             />
           </div>
