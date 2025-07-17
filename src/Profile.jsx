@@ -1,55 +1,74 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../src/components/AuthContext";
+import axios from "axios";
 
 const Profile = () => {
-  const [name, setName] = useState('Kavya');
-  const [goal, setGoal] = useState('Build Muscle');
+  const { user } = useAuth();
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(`/api/users/${user.uid}`)
+        .then((res) => setProfile(res.data))
+        .catch((err) => console.error("Profile load error:", err));
+    }
+  }, [user]);
+
+  if (!user || !profile) {
+    return <p className="text-center mt-10 text-gray-600">Loading profile...</p>;
+  }
 
   return (
-    <>
-      
-
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-6 md:px-12">
-        <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Your Profile</h1>
-
-        <div className="bg-gray-800 p-6 rounded-xl shadow-lg max-w-xl mx-auto">
-          <div className="flex justify-center mb-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4">
+      <div className="w-full max-w-xl bg-white rounded-2xl shadow-lg overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 h-32 relative">
+          <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12">
             <img
-              src="https://i.pravatar.cc/100"
-              className="rounded-full w-24 h-24 border-4 border-blue-500"
+              className="h-24 w-24 rounded-full border-4 border-white shadow-lg"
+              src={profile.avatarUrl || "https://i.pravatar.cc/100"}
+              alt="User avatar"
             />
           </div>
+        </div>
 
-          <div className="space-y-6">
-            <div>
-              <label className="block text-sm text-gray-300 mb-1">Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+        {/* Content */}
+        <div className="pt-16 px-6 pb-8 text-center">
+          <h2 className="text-2xl font-semibold text-gray-800">{profile.name}</h2>
+          <p className="text-sm text-gray-500">{profile.email}</p>
+          {profile.bio && (
+            <p className="mt-2 text-gray-600 italic text-sm">"{profile.bio}"</p>
+          )}
 
-            <div>
-              <label className="block text-sm text-gray-300 mb-1">Fitness Goal</label>
-              <input
-                type="text"
-                value={goal}
-                onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+          {/* Stats */}
+          <div className="mt-6 grid grid-cols-3 gap-4 text-sm text-gray-600">
+            <div className="flex flex-col items-center">
+              <span className="text-lg font-bold text-blue-600">{profile.totalPoints}</span>
+              <span>Total Points</span>
             </div>
+            <div className="flex flex-col items-center">
+              <span className="text-lg font-bold text-green-600">{profile.challengesCompleted?.length || 0}</span>
+              <span>Challenges</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-lg font-bold text-purple-600">{profile.streak || 0}</span>
+              <span>Day Streak</span>
+            </div>
+          </div>
 
-            <div className="bg-gray-700 p-4 rounded-md text-sm text-gray-300">
-              <p><strong>Streak:</strong>7 days</p>
-              <p><strong>Level:</strong>Gold Challenger</p>
-              <p><strong>Recent Goal:</strong>{goal}</p>
-            </div>
+          {/* Edit Link */}
+          <div className="mt-6">
+            <a
+              href="/edit-profile"
+              className="text-sm text-blue-600 font-medium hover:underline"
+            >
+              ✏️ Edit Profile
+            </a>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
