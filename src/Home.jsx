@@ -6,9 +6,44 @@ import ExerciseVideoSection from '../src/components/ExerciseVideoSection';
 import ExerciseGuide from '../src/components/ExerciseGuide';
 import NutritionGuide from '../src/components/NutritionGuide';
 import QuoteBanner from '../src/components/QuoteBanner';
+import { useAuth } from "./useAuth"; 
 // import api methods if needed here
 
 const Home = () => {
+
+  const { user } = useAuth();
+  useEffect(() => {
+    const updateUser = async () => {
+      if (!user?.uid) return;
+
+      try {
+        const res = await fetch("http://localhost:5000/api/users/update", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            uid: user.uid,
+            name: user.displayName || "New User",
+            email: user.email || "",
+            profilePhoto: user.photoURL || "",
+            joinedAt: new Date().toISOString(),
+          }),
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          console.error("❌ Update failed:", data.error);
+        } else {
+          console.log("✅ User synced on home load");
+        }
+      } catch (err) {
+        console.error("❌ Failed to update user:", err);
+      }
+    };
+
+    updateUser();
+  }, [user]);
   const [stats, setStats] = useState([
     { label: 'Steps Today', value: '5,230' },
     { label: 'Calories Burned', value: '372 kcal' },

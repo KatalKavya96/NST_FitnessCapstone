@@ -6,10 +6,12 @@ import Challenges from './Challenges';
 import Leaderboard from './Leaderboard';
 import Profile from './Profile';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
+import EditProfile from './EditProfile';
 import { AuthProvider } from './components/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import './index.css';
-import SignUp from './SignUp';
+import PublicProfile from "./PublicProfile";
 
 
 function App() {
@@ -50,8 +52,17 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/edit-profile"
+            element={
+              <ProtectedRoute>
+                <EditProfile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/user/:uid" element={<PublicProfile />} />
 
         </Routes>
       </BrowserRouter>
