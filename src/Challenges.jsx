@@ -9,6 +9,7 @@ const Challenges = () => {
       description: 'Complete a 2km run to boost your endurance.',
       type: 'Cardio',
       completed: false,
+      custom: false
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ const Challenges = () => {
       description: 'Do 50 pushups to strengthen your upper body.',
       type: 'Strength',
       completed: false,
+      custom: false
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ const Challenges = () => {
       description: 'Relax your mind with 10 minutes of guided meditation.',
       type: 'Mindfulness',
       completed: true,
+      custom: false
     },
     {
       id: 4,
@@ -30,8 +33,16 @@ const Challenges = () => {
       description: 'Hit your daily step goal to stay active.',
       type: 'Daily Goal',
       completed: false,
+      custom: false
     }
   ]);
+
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    type: ''
+  });
 
   const toggleComplete = (id) => {
     setChallenges(prev =>
@@ -41,12 +52,80 @@ const Challenges = () => {
     );
   };
 
+  const handleAddCustomChallenge = (e) => {
+    e.preventDefault();
+
+    const newChallenge = {
+      id: Date.now(),
+      title: formData.title,
+      description: formData.description || 'Custom challenge',
+      type: formData.type || 'Custom',
+      completed: false,
+      custom: true
+    };
+
+    setChallenges(prev => [...prev, newChallenge]);
+    setFormData({ title: '', description: '', type: '' });
+    setShowForm(false);
+  };
+
+  const removeChallenge = (id) => {
+    setChallenges(prev => prev.filter(ch => ch.id !== id));
+  };
+
   return (
     <>
-     
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-6 md:px-12">
         <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Today's Challenges</h1>
+
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow"
+          >
+            {showForm ? 'Cancel' : '➕ Add Your Own Challenge'}
+          </button>
+        </div>
+
+        {showForm && (
+          <form
+            onSubmit={handleAddCustomChallenge}
+            className="bg-gray-800 rounded-xl p-6 max-w-xl mx-auto mb-8 shadow-md space-y-4"
+          >
+            <input
+              type="text"
+              placeholder="Challenge Title"
+              name="title"
+              value={formData.title}
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              required
+              className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <textarea
+              placeholder="Challenge Description (optional)"
+              name="description"
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              rows="3"
+              className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+            <input
+              type="text"
+              placeholder="Type (e.g. Custom, Flexibility)"
+              name="type"
+              value={formData.type}
+              onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+              className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              type="submit"
+              className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg"
+            >
+              Submit Custom Challenge (10 points)
+            </button>
+          </form>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.map(challenge => (
@@ -59,17 +138,25 @@ const Challenges = () => {
               <span className="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full mb-4">
                 {challenge.type}
               </span>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center gap-2">
                 <button
                   onClick={() => toggleComplete(challenge.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     challenge.completed
                       ? 'bg-green-500 hover:bg-green-400'
                       : 'bg-yellow-500 hover:bg-yellow-400'
                   }`}
                 >
-                  {challenge.completed ? 'Completed ' : 'Mark as Complete'}
+                  {challenge.completed ? 'Completed' : 'Mark Complete'}
                 </button>
+                {challenge.custom && (
+                  <button
+                    onClick={() => removeChallenge(challenge.id)}
+                    className="bg-red-500 hover:bg-red-400 px-3 py-2 rounded-full text-xs font-semibold"
+                  >
+                    Remove
+                  </button>
+                )}
               </div>
             </div>
           ))}
