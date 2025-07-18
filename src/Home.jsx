@@ -3,10 +3,12 @@ import StatCard from '../src/components/StatCard';
 import ChallengeHighlight from '../src/components/Highlight';
 import ProgressBar from '../src/components/Bar';
 import ExerciseVideoSection from '../src/components/ExerciseVideoSection';
-import ExerciseGuide from '../src/components/ExerciseGuide';
 import NutritionGuide from '../src/components/NutritionGuide';
 import QuoteBanner from '../src/components/QuoteBanner';
 import { useAuth } from "./useAuth"; 
+import ExercisePreview from './components/ExercisePreview';
+import FitnessGuide from './components/FitnessGuide';
+import ExerciseVideoPreview from './components/ExerciseVideoPreview';
 // import api methods if needed here
 
 const Home = () => {
@@ -71,9 +73,61 @@ const Home = () => {
       <ChallengeHighlight title={challenge.title} link={challenge.link} />
       <ProgressBar current={progress.current} total={progress.total} />
 
-      <ExerciseVideoSection />
-      <ExerciseGuide />
-      <NutritionGuide />
+      <ExerciseVideoPreview/>
+
+      <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-200 shadow-lg">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">💪 Your Ultimate Fitness Guide</h2>
+          <p className="text-gray-700 text-md md:text-lg">
+            Explore exercises for each muscle group, with detailed reps, sets, and animations. Start your journey towards a stronger you.
+          </p>
+        </div>
+        <ExercisePreview/>
+        <div className="text-center mt-8">
+          <a
+            href="/fitness-guide"
+            className="inline-block px-6 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition"
+          >
+            🔍 See Full Fitness Guide
+          </a>
+        </div>
+      </section>
+      <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-green-50 to-emerald-100 shadow-lg">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-2">
+            🥗 Your Personal Nutrition Guide
+          </h2>
+          <p className="text-gray-700 text-md md:text-lg max-w-3xl mx-auto">
+            Explore diet plans tailored to your goals — whether it’s gaining mass, getting lean, or staying healthy. Vegetarian and Non-Vegetarian options included!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {[
+            { type: "Healthy", emoji: "🍎", color: "from-green-300 to-green-500" },
+            { type: "Bulk", emoji: "🍗", color: "from-yellow-300 to-orange-400" },
+            { type: "Cut", emoji: "🥦", color: "from-pink-300 to-red-400" },
+            { type: "Gym", emoji: "🍳", color: "from-blue-300 to-blue-500" }
+          ].map((plan, i) => (
+            <div
+              key={i}
+              className={`p-6 rounded-2xl bg-gradient-to-br ${plan.color} text-white font-semibold shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer`}
+            >
+              <div className="text-4xl mb-2">{plan.emoji}</div>
+              <h3 className="text-xl">{plan.type} Plan</h3>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <a
+            href="/nutrition-guide"
+            className="inline-block px-6 py-2 text-white font-semibold bg-green-600 hover:bg-green-700 rounded-full transition"
+          >
+            🍽️ Explore Full Nutrition Guide
+          </a>
+        </div>
+      </section>
       <QuoteBanner />
     </div>
   );

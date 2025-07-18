@@ -12,6 +12,8 @@ import { AuthProvider } from './components/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import './index.css';
 import PublicProfile from "./PublicProfile";
+import FitnessGuide from './components/FitnessGuide';
+import ExerciseVideos from './components/ExerciseVideoSection';
 
 
 function App() {
@@ -63,6 +65,10 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/user/:uid" element={<PublicProfile />} />
+          <Route path="/fitness-guide" element={<FitnessGuide />} />
+          <Route path="/exercise-videos" element={<ExerciseVideos />} />
+
+
 
         </Routes>
       </BrowserRouter>
