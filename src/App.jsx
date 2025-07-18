@@ -14,6 +14,7 @@ import './index.css';
 import PublicProfile from "./PublicProfile";
 import FitnessGuide from './components/FitnessGuide';
 import ExerciseVideos from './components/ExerciseVideoSection';
+import NutritionGuide from './components/NutritionGuide';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <Route path="/user/:uid" element={<PublicProfile />} />
           <Route path="/fitness-guide" element={<FitnessGuide />} />
           <Route path="/exercise-videos" element={<ExerciseVideos />} />
+          <Route path="/nutrition-guide" element={<NutritionGuide />} />
 
 
 

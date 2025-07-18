@@ -77,7 +77,7 @@ const Home = () => {
 
       <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-200 shadow-lg">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">💪 Your Ultimate Fitness Guide</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Your Ultimate Fitness Guide</h2>
           <p className="text-gray-700 text-md md:text-lg">
             Explore exercises for each muscle group, with detailed reps, sets, and animations. Start your journey towards a stronger you.
           </p>
@@ -88,14 +88,14 @@ const Home = () => {
             href="/fitness-guide"
             className="inline-block px-6 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition"
           >
-            🔍 See Full Fitness Guide
+            See Full Fitness Guide
           </a>
         </div>
       </section>
       <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-green-50 to-emerald-100 shadow-lg">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-2">
-            🥗 Your Personal Nutrition Guide
+            Your Personal Nutrition Guide
           </h2>
           <p className="text-gray-700 text-md md:text-lg max-w-3xl mx-auto">
             Explore diet plans tailored to your goals — whether it’s gaining mass, getting lean, or staying healthy. Vegetarian and Non-Vegetarian options included!
@@ -124,7 +124,7 @@ const Home = () => {
             href="/nutrition-guide"
             className="inline-block px-6 py-2 text-white font-semibold bg-green-600 hover:bg-green-700 rounded-full transition"
           >
-            🍽️ Explore Full Nutrition Guide
+            Explore Full Nutrition Guide
           </a>
         </div>
       </section>
