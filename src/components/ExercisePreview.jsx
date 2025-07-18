@@ -11,9 +11,9 @@ const ExercisePreview = () => {
           className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition"
         >
           <img
-            src={`/images/muscle-icons/${muscle.toLowerCase()}.png`}
+            src={`/assets/${muscle.toLowerCase()}.jpeg`}
             alt={muscle}
-            className="w-16 h-16 mb-3 object-contain"
+            className="w-30 h-35 mb-3 object-cover rounded-lg"
           />
           <h3 className="text-lg font-bold text-gray-800">{muscle}</h3>
           <p className="text-sm text-gray-500">Top exercises for {muscle}</p>

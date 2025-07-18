@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const muscleGroups = [
   {
     muscle: 'Chest',
-    image: '/images/chest.jpg',
+    image: '/assets/chest.jpeg',
     exercises: [
       { name: 'Push-ups', sets: 3, reps: '12-15', timer: '30', gif: '/images/pushups.gif' },
       { name: 'Bench Press', sets: 4, reps: '10', timer: '45', gif: '/images/benchpress.gif' },
@@ -12,7 +12,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Back',
-    image: '/images/back.jpg',
+    image: '/assets/back.jpeg',
     exercises: [
       { name: 'Pull-ups', sets: 3, reps: '8-10', timer: '30', gif: '/images/pullups.gif' },
       { name: 'Deadlifts', sets: 4, reps: '6', timer: '60', gif: '/images/deadlift.gif' },
@@ -20,7 +20,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Legs',
-    image: '/images/legs.jpg',
+    image: '/assets/legs.jpeg',
     exercises: [
       { name: 'Squats', sets: 4, reps: '10-12', timer: '45', gif: '/images/squats.gif' },
       { name: 'Lunges', sets: 3, reps: '12 each leg', timer: '30', gif: '/images/lunges.gif' },
@@ -28,7 +28,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Biceps',
-    image: '/images/biceps.jpg',
+    image: '/assets/biceps.jpeg',
     exercises: [
       { name: 'Barbell Curl', sets: 3, reps: '10-12', timer: '30', gif: '/images/barbellcurl.gif' },
       { name: 'Hammer Curl', sets: 3, reps: '12', timer: '30', gif: '/images/hammercurl.gif' },
@@ -36,7 +36,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Triceps',
-    image: '/images/triceps.jpg',
+    image: '/assets/triceps.jpeg',
     exercises: [
       { name: 'Triceps Dips', sets: 3, reps: '15', timer: '30', gif: '/images/tricepsdips.gif' },
       { name: 'Overhead Extension', sets: 3, reps: '12', timer: '30', gif: '/images/overheadext.gif' },
@@ -44,7 +44,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Shoulders',
-    image: '/images/shoulders.jpg',
+    image: '/assets/shoulders.jpeg',
     exercises: [
       { name: 'Overhead Press', sets: 4, reps: '10', timer: '45', gif: '/images/overheadpress.gif' },
       { name: 'Lateral Raise', sets: 3, reps: '12', timer: '30', gif: '/images/lateralraise.gif' },
@@ -52,7 +52,7 @@ const muscleGroups = [
   },
   {
     muscle: 'Core',
-    image: '/images/core.jpg',
+    image: '/assets/core.jpeg',
     exercises: [
       { name: 'Plank', sets: 3, reps: '—', timer: '60', gif: '/images/plank.gif' },
       { name: 'Crunches', sets: 4, reps: '15', timer: '30', gif: '/images/crunches.gif' },
@@ -93,14 +93,7 @@ const FitnessGuide = () => {
 
   return (
     <div className={`min-h-screen py-12 px-6 md:px-16 transition duration-300 ${darkMode ? darkTheme : lightTheme}`}>
-      <div className="flex justify-end mb-6">
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="px-4 py-2 rounded-full font-semibold text-sm bg-yellow-400 hover:bg-yellow-500 text-black shadow-md"
-        >
-          Toggle {darkMode ? "Light" : "Dark"} Mode
-        </button>
-      </div>
+      
 
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
@@ -108,7 +101,7 @@ const FitnessGuide = () => {
         transition={{ duration: 0.6 }}
         className={`text-4xl md:text-5xl font-extrabold text-center mb-12 tracking-wide ${darkMode ? "text-yellow-400" : "text-yellow-600"}`}
       >
-        🏋️‍♂️ Begin Your Epic Fitness Journey
+        Begin Your Epic Fitness Journey
       </motion.h1>
 
       {!selectedMuscle && (
@@ -148,9 +141,9 @@ const FitnessGuide = () => {
                 key={i}
                 whileHover={{ scale: 1.03 }}
                 onClick={() => handleExerciseClick(ex)}
-                className="cursor-pointer bg-white border border-yellow-200 text-gray-800 rounded-xl p-5 shadow-md hover:shadow-yellow-400 transition duration-300"
+                className="cursor-pointer bg-white border border-black/20 text-gray-800 rounded-xl p-5 shadow-md hover:shadow-yellow-400 transition duration-300"
               >
-                <img src={ex.gif} alt={ex.name} className="w-full h-40 object-contain rounded mb-4" />
+                <img src={`/assets/${ex.name}.jpeg`} alt={ex.name} className="w-full h-50 object-cover rounded mb-4" />
                 <h3 className="text-xl font-bold text-center text-yellow-700">
                   {ex.name}
                 </h3>

@@ -75,7 +75,7 @@ const Home = () => {
 
       <ExerciseVideoPreview/>
 
-      <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-200 shadow-lg">
+      <section className="my-12 px-4 py-10 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Your Ultimate Fitness Guide</h2>
           <p className="text-gray-700 text-md md:text-lg">
@@ -92,7 +92,7 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <section className="my-12 px-4 py-10 rounded-xl bg-gradient-to-br from-green-50 to-emerald-100 shadow-lg">
+      <section className="my-12 px-4 py-10 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-2">
             Your Personal Nutrition Guide
