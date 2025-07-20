@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChallengesProvider } from './Challenges';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './Home';
@@ -21,32 +22,33 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/challenges"
-            element={
-              <ProtectedRoute>
-                <Challenges />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/leaderboard"
-            element={
-              <ProtectedRoute>
-                <Leaderboard />
-              </ProtectedRoute>
-            }
-          />
+        <ChallengesProvider>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/challenges"
+              element={
+                <ProtectedRoute>
+                  <Challenges />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/leaderboard"
+              element={
+                <ProtectedRoute>
+                  <Leaderboard />
+                </ProtectedRoute>
+              }
+            />
           <Route
             path="/profile"
             element={
@@ -73,6 +75,7 @@ function App() {
 
 
         </Routes>
+      </ChallengesProvider>
       </BrowserRouter>
     </AuthProvider>
   );
