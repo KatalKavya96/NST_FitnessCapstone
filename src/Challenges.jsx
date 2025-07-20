@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import Navbar from './components/Navbar';
+import { useTheme } from './components/ThemeContext';
 
 export const ChallengesContext = createContext();
 
@@ -127,6 +128,7 @@ export const ChallengesProvider = ({ children }) => {
 
 const ChallengesContent = () => {
   const { challenges, setChallenges, toggleComplete, removeChallenge } = useChallenges();
+  const { isDarkMode } = useTheme();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -151,13 +153,13 @@ const ChallengesContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-6 md:px-12">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gradient-to-br from-gray-900 to-black text-white' : 'bg-gradient-to-br from-blue-50 to-white text-gray-900'} px-4 py-6 md:px-12 transition-colors duration-200`}>
       <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Today's Challenges</h1>
 
       <div className="flex justify-center mb-6">
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow"
+          className={`${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white px-6 py-2 rounded-lg shadow transition-colors duration-200`}
         >
           {showForm ? 'Cancel' : '➕ Add Your Own Challenge'}
         </button>
@@ -166,7 +168,7 @@ const ChallengesContent = () => {
       {showForm && (
         <form
           onSubmit={handleAddCustomChallenge}
-          className="bg-gray-800 rounded-xl p-6 max-w-xl mx-auto mb-8 shadow-md space-y-4"
+          className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-xl p-6 max-w-xl mx-auto mb-8 shadow-md space-y-4 transition-colors duration-200`}
         >
           <input
             type="text"
@@ -174,25 +176,25 @@ const ChallengesContent = () => {
             value={formData.title}
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             required
-            className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600"
+            className={`w-full p-3 rounded-md ${isDarkMode ? 'bg-gray-900 text-white border-gray-600' : 'bg-gray-50 text-gray-900 border-gray-200'} border transition-colors duration-200`}
           />
           <textarea
             placeholder="Challenge Description (optional)"
             value={formData.description}
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             rows="3"
-            className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600"
+            className={`w-full p-3 rounded-md ${isDarkMode ? 'bg-gray-900 text-white border-gray-600' : 'bg-gray-50 text-gray-900 border-gray-200'} border transition-colors duration-200`}
           />
           <input
             type="text"
             placeholder="Type (e.g. Flexibility, Strength)"
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-            className="w-full p-3 rounded-md bg-gray-900 text-white border border-gray-600"
+            className={`w-full p-3 rounded-md ${isDarkMode ? 'bg-gray-900 text-white border-gray-600' : 'bg-gray-50 text-gray-900 border-gray-200'} border transition-colors duration-200`}
           />
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg"
+            className={`w-full ${isDarkMode ? 'bg-green-600 hover:bg-green-700' : 'bg-green-500 hover:bg-green-600'} text-white py-2 rounded-lg transition-colors duration-200`}
           >
             Submit Custom Challenge (10 points)
           </button>
@@ -203,12 +205,12 @@ const ChallengesContent = () => {
         {challenges.map(challenge => (
           <div
             key={challenge.id}
-            className="bg-gray-800 p-5 rounded-xl shadow-md hover:scale-[1.02] transition-all duration-300"
+            className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} p-5 rounded-xl shadow-md hover:scale-[1.02] transition-all duration-300`}
           >
             <h2 className="text-xl font-semibold mb-1">{challenge.title}</h2>
-            <p className="text-gray-300 text-sm mb-2">{challenge.description}</p>
-            <p className="text-sm text-yellow-400 mb-2">🏆 Points: {challenge.points}</p>
-            <span className="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full mb-4">
+            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm mb-2`}>{challenge.description}</p>
+            <p className="text-sm text-yellow-500 mb-2">🏆 Points: {challenge.points}</p>
+            <span className={`inline-block ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'} text-white text-xs px-3 py-1 rounded-full mb-4 transition-colors duration-200`}>
               {challenge.type}
             </span>
             <div className="space-y-2">
@@ -216,10 +218,12 @@ const ChallengesContent = () => {
                 <button
                   onClick={() => !challenge.completed && toggleComplete(challenge.id)}
                   disabled={challenge.completed}
-                  className={`flex-1 px-4 py-2 rounded-full text-sm font-medium ${
+                  className={`flex-1 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                     challenge.completed
                       ? 'bg-green-500 cursor-not-allowed opacity-75'
-                      : 'bg-yellow-500 hover:bg-yellow-400'
+                      : isDarkMode
+                        ? 'bg-yellow-500 hover:bg-yellow-400'
+                        : 'bg-yellow-400 hover:bg-yellow-300'
                   }`}
                 >
                   {challenge.completed ? '✅ Completed' : 'Mark Complete'}
@@ -227,17 +231,17 @@ const ChallengesContent = () => {
                 {challenge.custom && !challenge.completed && (
                   <button
                     onClick={() => removeChallenge(challenge.id)}
-                    className="bg-red-500 hover:bg-red-400 px-3 py-2 rounded-full text-xs font-semibold"
+                    className={`${isDarkMode ? 'bg-red-500 hover:bg-red-400' : 'bg-red-400 hover:bg-red-300'} px-3 py-2 rounded-full text-xs font-semibold text-white transition-colors duration-200`}
                   >
                     Remove
                   </button>
                 )}
               </div>
               {challenge.completed && challenge.completedAt && (
-                <p className="text-xs text-gray-400 text-center">
+                <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-center transition-colors duration-200`}>
                   Completed {new Date(challenge.completedAt).toLocaleTimeString()}
                   <br/>
-                  <span className="text-yellow-400">(Disappears in 3 hours)</span>
+                  <span className="text-yellow-500">(Disappears in 3 hours)</span>
                 </p>
               )}
             </div>
@@ -248,8 +252,4 @@ const ChallengesContent = () => {
   );
 };
 
-const Challenges = () => {
-  return <ChallengesContent />;
-};
-
-export default Challenges;
+export default ChallengesContent;
