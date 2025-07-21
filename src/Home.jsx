@@ -41,12 +41,12 @@ const Home = () => {
 
         const data = await res.json();
         if (!res.ok) {
-          console.error('❌ Update failed:', data.error);
+          console.error('Update failed:', data.error);
         } else {
-          console.log('✅ User synced on home load');
+          console.log('User synced on home load');
         }
       } catch (err) {
-        console.error('❌ Failed to update user:', err);
+        console.error('Failed to update user:', err);
       }
     };
 
@@ -54,7 +54,7 @@ const Home = () => {
   }, [user]);
 
   useEffect(() => {
-    // Get a random uncompleted challenge
+
     const uncompletedChallenges = challenges.filter(c => !c.completed);
     if (uncompletedChallenges.length > 0) {
       const randomIndex = Math.floor(Math.random() * uncompletedChallenges.length);
@@ -135,10 +135,10 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {[
-            { type: 'Healthy', emoji: '🍎', color: isDarkMode ? 'from-green-700 to-green-900' : 'from-green-300 to-green-500', description: 'Balanced nutrition for overall wellness' },
-            { type: 'Bulk', emoji: '🍗', color: isDarkMode ? 'from-yellow-700 to-orange-900' : 'from-yellow-300 to-orange-400', description: 'High-protein plans for muscle gain' },
-            { type: 'Cut', emoji: '🥦', color: isDarkMode ? 'from-pink-700 to-red-900' : 'from-pink-300 to-red-400', description: 'Lean meals for fat loss' },
-            { type: 'Gym', emoji: '🍳', color: isDarkMode ? 'from-blue-700 to-blue-900' : 'from-blue-300 to-blue-500', description: 'Pre and post workout nutrition' }
+            { type: 'Healthy', emoji: '', color: isDarkMode ? 'from-green-700 to-green-900' : 'from-green-300 to-green-500', description: 'Balanced nutrition for overall wellness' },
+            { type: 'Bulk', emoji: '', color: isDarkMode ? 'from-yellow-700 to-orange-900' : 'from-yellow-300 to-orange-400', description: 'High-protein plans for muscle gain' },
+            { type: 'Cut', emoji: '', color: isDarkMode ? 'from-pink-700 to-red-900' : 'from-pink-300 to-red-400', description: 'Lean meals for fat loss' },
+            { type: 'Gym', emoji: '', color: isDarkMode ? 'from-blue-700 to-blue-900' : 'from-blue-300 to-blue-500', description: 'Pre and post workout nutrition' }
           ].map((plan, i) => (
             <div
               key={i}

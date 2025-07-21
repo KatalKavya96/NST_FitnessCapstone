@@ -62,7 +62,6 @@ export const ChallengesProvider = ({ children }) => {
     const savedChallenges = localStorage.getItem('challenges');
     if (savedChallenges) {
       const parsedChallenges = JSON.parse(savedChallenges);
-      // Filter out stale completed challenges
       return parsedChallenges.filter(ch => {
         if (!ch.completed) return true;
         if (!ch.completedAt) return true;
@@ -145,7 +144,7 @@ const ChallengesContent = () => {
       type: formData.type || 'Custom',
       completed: false,
       custom: true,
-      points: 10, // fixed points for custom
+      points: 10,
     };
     setChallenges(prev => [...prev, newChallenge]);
     setFormData({ title: '', description: '', type: '' });
@@ -161,7 +160,7 @@ const ChallengesContent = () => {
           onClick={() => setShowForm(!showForm)}
           className={`${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white px-6 py-2 rounded-lg shadow transition-colors duration-200`}
         >
-          {showForm ? 'Cancel' : '➕ Add Your Own Challenge'}
+          {showForm ? 'Cancel' : 'Add Your Own Challenge'}
         </button>
       </div>
 
@@ -209,7 +208,7 @@ const ChallengesContent = () => {
           >
             <h2 className="text-xl font-semibold mb-1">{challenge.title}</h2>
             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm mb-2`}>{challenge.description}</p>
-            <p className="text-sm text-yellow-500 mb-2">🏆 Points: {challenge.points}</p>
+            <p className="text-sm text-yellow-500 mb-2">Points: {challenge.points}</p>
             <span className={`inline-block ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'} text-white text-xs px-3 py-1 rounded-full mb-4 transition-colors duration-200`}>
               {challenge.type}
             </span>
@@ -226,7 +225,7 @@ const ChallengesContent = () => {
                         : 'bg-yellow-400 hover:bg-yellow-300'
                   }`}
                 >
-                  {challenge.completed ? '✅ Completed' : 'Mark Complete'}
+                  {challenge.completed ? 'Completed' : 'Mark Complete'}
                 </button>
                 {challenge.custom && !challenge.completed && (
                   <button

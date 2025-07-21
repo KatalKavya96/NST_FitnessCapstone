@@ -2,7 +2,6 @@ import React from 'react';
 import { useChallenges } from './Challenges';
 import { useTheme } from './components/ThemeContext';
 
-// Hardcoded users with their points
 const dummyUsers = [
   { name: 'Kavya Katal', id: 'me', totalPoints: 0 },
   { name: 'Neelanshu', totalPoints: 320 },
@@ -38,7 +37,7 @@ const Leaderboard = () => {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gradient-to-br from-gray-900 to-black text-white' : 'bg-gradient-to-br from-blue-50 to-white text-gray-900'} py-12 px-4 md:px-12 transition-colors duration-200`}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">🏆 Fitness Champions</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">Fitness Champions</h2>
           <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Compete, achieve, and rise to the top!</p>
         </div>
 
@@ -104,7 +103,7 @@ const Leaderboard = () => {
         )}
 
         <div className={`mt-8 text-center ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
-          <p>Complete challenges to earn points and climb the ranks! 💪</p>
+          <p>Complete challenges to earn points and climb the ranks!</p>
           <p className="mt-2">Points from challenges completed within the last 3 hours count towards your ranking.</p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 
-const ChallengeHighlight = ({ title, description, points, type, link }) => {
+const Highlight = ({ title, description, points, type, link }) => {
   const { isDarkMode } = useTheme();
 
   return (
@@ -17,7 +17,6 @@ const ChallengeHighlight = ({ title, description, points, type, link }) => {
           <h2 className="text-2xl font-bold mb-2">{title}</h2>
           <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>{description}</p>
           <div className="flex items-center gap-2">
-            <span className="text-yellow-500">🏆</span>
             <p className={`text-sm font-medium ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
               {points} points
             </p>
@@ -38,4 +37,4 @@ const ChallengeHighlight = ({ title, description, points, type, link }) => {
   );
 };
 
-export default ChallengeHighlight;
+export default Highlight;
