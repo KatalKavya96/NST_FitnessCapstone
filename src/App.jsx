@@ -1,20 +1,18 @@
 import React from 'react';
 import { ChallengesProvider } from './Challenges';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Layout from './components/Layout';
 import Home from './Home';
 import Challenges from './Challenges';
 import Leaderboard from './Leaderboard';
 import Profile from './Profile';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
 import EditProfile from './EditProfile';
 import { AuthProvider } from './components/AuthContext';
 import { ThemeProvider } from './components/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import './index.css';
-import PublicProfile from "./PublicProfile";
+import PublicProfile from './PublicProfile';
 import FitnessGuide from './components/FitnessGuide';
 import ExerciseVideos from './components/ExerciseVideoSection';
 import NutritionGuide from './components/NutritionGuide';
@@ -25,7 +23,7 @@ function App() {
       <ThemeProvider>
         <BrowserRouter>
           <ChallengesProvider>
-            <div className="relative">
+            <div className="relative min-h-screen">
               <Navbar />
               <Layout>
                 <Routes>
@@ -69,12 +67,32 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
-                  <Route path="/signin" element={<SignIn />} />
-                  <Route path="/signup" element={<SignUp />} />
                   <Route path="/user/:uid" element={<PublicProfile />} />
-                  <Route path="/fitness-guide" element={<FitnessGuide />} />
-                  <Route path="/exercise-videos" element={<ExerciseVideos />} />
-                  <Route path="/nutrition-guide" element={<NutritionGuide />} />
+                  <Route
+                    path="/fitness-guide"
+                    element={
+                      <ProtectedRoute>
+                        <FitnessGuide />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/exercise-videos"
+                    element={
+                      <ProtectedRoute>
+                        <ExerciseVideos />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/nutrition-guide"
+                    element={
+                      <ProtectedRoute>
+                        <NutritionGuide />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </Layout>
             </div>

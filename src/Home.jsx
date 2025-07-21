@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatCard from '../src/components/StatCard';
 import ChallengeHighlight from '../src/components/Highlight';
@@ -11,11 +11,14 @@ import ExercisePreview from './components/ExercisePreview';
 import FitnessGuide from './components/FitnessGuide';
 import ExerciseVideoPreview from './components/ExerciseVideoPreview';
 import { useTheme } from './components/ThemeContext';
+import { useChallenges } from './Challenges';
 
 const Home = () => {
   const { user } = useAuth();
   const { isDarkMode } = useTheme();
   const navigate = useNavigate();
+  const { challenges } = useChallenges();
+  const [randomChallenge, setRandomChallenge] = useState(null);
 
   useEffect(() => {
     const updateUser = async () => {
@@ -50,18 +53,25 @@ const Home = () => {
     updateUser();
   }, [user]);
 
+  useEffect(() => {
+    // Get a random uncompleted challenge
+    const uncompletedChallenges = challenges.filter(c => !c.completed);
+    if (uncompletedChallenges.length > 0) {
+      const randomIndex = Math.floor(Math.random() * uncompletedChallenges.length);
+      setRandomChallenge(uncompletedChallenges[randomIndex]);
+    } else {
+      setRandomChallenge(null);
+    }
+  }, [challenges]);
+
   const stats = [
     { label: 'Steps Today', value: '5,230' },
     { label: 'Calories Burned', value: '372 kcal' },
     { label: 'Streak', value: '7 Days' },
   ];
 
-  const challenge = {
-    title: '50 Pushups + 2km Walk',
-    link: '/challenges'
-  };
-
-  const progress = { current: 3, total: 5 };
+  const completedChallenges = challenges.filter(c => c.completed).length;
+  const totalChallenges = challenges.length;
 
   const handleNutritionCardClick = (type) => {
     navigate('/nutrition-guide', { state: { selectedType: type } });
@@ -84,8 +94,19 @@ const Home = () => {
         ))}
       </div>
 
-      <ChallengeHighlight title={challenge.title} link={challenge.link} />
-      <ProgressBar current={progress.current} total={progress.total} />
+      {randomChallenge && (
+        <ChallengeHighlight 
+          title={randomChallenge.title} 
+          description={randomChallenge.description}
+          points={randomChallenge.points}
+          type={randomChallenge.type}
+          link="/challenges" 
+        />
+      )}
+
+      <div className="my-8">
+        <ProgressBar current={completedChallenges} total={totalChallenges} />
+      </div>
 
       <ExerciseVideoPreview/>
 

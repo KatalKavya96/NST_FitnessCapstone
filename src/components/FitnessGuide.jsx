@@ -8,6 +8,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Push-ups', sets: 3, reps: '12-15', timer: '30', gif: '/images/pushups.gif' },
       { name: 'Bench Press', sets: 4, reps: '10', timer: '45', gif: '/images/benchpress.gif' },
+      { name: 'Incline Dumbbell Press', sets: 3, reps: '10-12', timer: '45', gif: '/images/inclinepress.gif' },
+      { name: 'Dips', sets: 3, reps: '8-12', timer: '30', gif: '/images/dips.gif' },
+      { name: 'Cable Flyes', sets: 3, reps: '12-15', timer: '30', gif: '/images/cableflyes.gif' },
+      { name: 'Decline Push-ups', sets: 3, reps: '10-12', timer: '30', gif: '/images/declinepushups.gif' },
+      { name: 'Dumbbell Flyes', sets: 3, reps: '12-15', timer: '30', gif: '/images/dumbbellflyes.gif' },
+      { name: 'Machine Press', sets: 3, reps: '12-15', timer: '45', gif: '/images/machinepress.gif' },
+      { name: 'Resistance Band Press', sets: 3, reps: '15-20', timer: '30', gif: '/images/bandpress.gif' },
+      { name: 'Plate Press', sets: 3, reps: '12-15', timer: '30', gif: '/images/platepress.gif' }
     ]
   },
   {
@@ -16,6 +24,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Pull-ups', sets: 3, reps: '8-10', timer: '30', gif: '/images/pullups.gif' },
       { name: 'Deadlifts', sets: 4, reps: '6', timer: '60', gif: '/images/deadlift.gif' },
+      { name: 'Barbell Rows', sets: 3, reps: '10-12', timer: '45', gif: '/images/barbellrows.gif' },
+      { name: 'Lat Pulldowns', sets: 3, reps: '12-15', timer: '30', gif: '/images/latpulldowns.gif' },
+      { name: 'Face Pulls', sets: 3, reps: '15-20', timer: '30', gif: '/images/facepulls.gif' },
+      { name: 'T-Bar Rows', sets: 3, reps: '10-12', timer: '45', gif: '/images/tbarrows.gif' },
+      { name: 'Seated Cable Rows', sets: 3, reps: '12-15', timer: '30', gif: '/images/cablerows.gif' },
+      { name: 'Dumbbell Rows', sets: 3, reps: '10-12', timer: '30', gif: '/images/dumbbellrows.gif' },
+      { name: 'Hyperextensions', sets: 3, reps: '12-15', timer: '30', gif: '/images/hyperextensions.gif' },
+      { name: 'Meadows Rows', sets: 3, reps: '10-12', timer: '45', gif: '/images/meadowsrows.gif' }
     ]
   },
   {
@@ -24,6 +40,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Squats', sets: 4, reps: '10-12', timer: '45', gif: '/images/squats.gif' },
       { name: 'Lunges', sets: 3, reps: '12 each leg', timer: '30', gif: '/images/lunges.gif' },
+      { name: 'Romanian Deadlifts', sets: 3, reps: '10-12', timer: '45', gif: '/images/rdl.gif' },
+      { name: 'Leg Press', sets: 3, reps: '12-15', timer: '45', gif: '/images/legpress.gif' },
+      { name: 'Calf Raises', sets: 4, reps: '15-20', timer: '30', gif: '/images/calfraises.gif' },
+      { name: 'Leg Extensions', sets: 3, reps: '12-15', timer: '30', gif: '/images/legextensions.gif' },
+      { name: 'Leg Curls', sets: 3, reps: '12-15', timer: '30', gif: '/images/legcurls.gif' },
+      { name: 'Bulgarian Split Squats', sets: 3, reps: '10-12 each leg', timer: '45', gif: '/images/bulgariansquats.gif' },
+      { name: 'Hip Thrusts', sets: 3, reps: '12-15', timer: '45', gif: '/images/hipthrusts.gif' },
+      { name: 'Box Jumps', sets: 3, reps: '10', timer: '30', gif: '/images/boxjumps.gif' }
     ]
   },
   {
@@ -32,6 +56,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Barbell Curl', sets: 3, reps: '10-12', timer: '30', gif: '/images/barbellcurl.gif' },
       { name: 'Hammer Curl', sets: 3, reps: '12', timer: '30', gif: '/images/hammercurl.gif' },
+      { name: 'Incline Dumbbell Curl', sets: 3, reps: '12-15', timer: '30', gif: '/images/inclinecurl.gif' },
+      { name: 'Preacher Curl', sets: 3, reps: '10-12', timer: '30', gif: '/images/preachercurl.gif' },
+      { name: 'Concentration Curl', sets: 3, reps: '12-15', timer: '30', gif: '/images/concentrationcurl.gif' },
+      { name: 'Cable Curl', sets: 3, reps: '12-15', timer: '30', gif: '/images/cablecurl.gif' },
+      { name: 'EZ Bar Curl', sets: 3, reps: '10-12', timer: '30', gif: '/images/ezbarcurl.gif' },
+      { name: 'Spider Curl', sets: 3, reps: '12-15', timer: '30', gif: '/images/spidercurl.gif' },
+      { name: 'Reverse Curl', sets: 3, reps: '12-15', timer: '30', gif: '/images/reversecurl.gif' },
+      { name: '21s', sets: 3, reps: '21', timer: '45', gif: '/images/21s.gif' }
     ]
   },
   {
@@ -40,6 +72,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Triceps Dips', sets: 3, reps: '15', timer: '30', gif: '/images/tricepsdips.gif' },
       { name: 'Overhead Extension', sets: 3, reps: '12', timer: '30', gif: '/images/overheadext.gif' },
+      { name: 'Rope Pushdowns', sets: 3, reps: '12-15', timer: '30', gif: '/images/ropepushdowns.gif' },
+      { name: 'Skull Crushers', sets: 3, reps: '10-12', timer: '30', gif: '/images/skullcrushers.gif' },
+      { name: 'Close Grip Bench', sets: 3, reps: '10-12', timer: '45', gif: '/images/closegripbench.gif' },
+      { name: 'Diamond Push-ups', sets: 3, reps: '12-15', timer: '30', gif: '/images/diamondpushups.gif' },
+      { name: 'V-Bar Pushdowns', sets: 3, reps: '12-15', timer: '30', gif: '/images/vbarpushdowns.gif' },
+      { name: 'Kickbacks', sets: 3, reps: '12-15', timer: '30', gif: '/images/kickbacks.gif' },
+      { name: 'Bench Dips', sets: 3, reps: '15-20', timer: '30', gif: '/images/benchdips.gif' },
+      { name: 'One Arm Extensions', sets: 3, reps: '12-15', timer: '30', gif: '/images/onearmext.gif' }
     ]
   },
   {
@@ -48,6 +88,14 @@ const muscleGroups = [
     exercises: [
       { name: 'Overhead Press', sets: 4, reps: '10', timer: '45', gif: '/images/overheadpress.gif' },
       { name: 'Lateral Raise', sets: 3, reps: '12', timer: '30', gif: '/images/lateralraise.gif' },
+      { name: 'Front Raise', sets: 3, reps: '12-15', timer: '30', gif: '/images/frontraise.gif' },
+      { name: 'Face Pulls', sets: 3, reps: '15-20', timer: '30', gif: '/images/facepulls.gif' },
+      { name: 'Upright Rows', sets: 3, reps: '12-15', timer: '30', gif: '/images/uprightrows.gif' },
+      { name: 'Arnold Press', sets: 3, reps: '10-12', timer: '45', gif: '/images/arnoldpress.gif' },
+      { name: 'Reverse Flyes', sets: 3, reps: '12-15', timer: '30', gif: '/images/reverseflyes.gif' },
+      { name: 'Military Press', sets: 3, reps: '8-10', timer: '45', gif: '/images/militarypress.gif' },
+      { name: 'Plate Raises', sets: 3, reps: '12-15', timer: '30', gif: '/images/plateraises.gif' },
+      { name: 'Cable Laterals', sets: 3, reps: '12-15', timer: '30', gif: '/images/cablelaterals.gif' }
     ]
   },
   {
@@ -56,8 +104,16 @@ const muscleGroups = [
     exercises: [
       { name: 'Plank', sets: 3, reps: '—', timer: '60', gif: '/images/plank.gif' },
       { name: 'Crunches', sets: 4, reps: '15', timer: '30', gif: '/images/crunches.gif' },
+      { name: 'Russian Twists', sets: 3, reps: '20 total', timer: '30', gif: '/images/russiantwists.gif' },
+      { name: 'Leg Raises', sets: 3, reps: '12-15', timer: '30', gif: '/images/legraises.gif' },
+      { name: 'Mountain Climbers', sets: 3, reps: '30 total', timer: '30', gif: '/images/mountainclimbers.gif' },
+      { name: 'Dead Bug', sets: 3, reps: '10 each side', timer: '30', gif: '/images/deadbug.gif' },
+      { name: 'Ab Wheel Rollout', sets: 3, reps: '10-12', timer: '30', gif: '/images/abwheel.gif' },
+      { name: 'Bicycle Crunches', sets: 3, reps: '20 total', timer: '30', gif: '/images/bicyclecrunches.gif' },
+      { name: 'Side Planks', sets: 3, reps: '30s each side', timer: '30', gif: '/images/sideplanks.gif' },
+      { name: 'Hanging Leg Raises', sets: 3, reps: '10-12', timer: '30', gif: '/images/hanginglegraises.gif' }
     ]
-  },
+  }
 ];
 
 const FitnessGuide = () => {
@@ -93,8 +149,6 @@ const FitnessGuide = () => {
 
   return (
     <div className={`min-h-screen py-12 px-6 md:px-16 transition duration-300 ${darkMode ? darkTheme : lightTheme}`}>
-      
-
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -174,17 +228,17 @@ const FitnessGuide = () => {
           <div className="text-center space-y-2 text-lg">
             {selectedExercise.reps && (
               <p>
-                🔁 Reps: <span className="font-semibold">{selectedExercise.reps}</span>
+                Reps: <span className="font-semibold">{selectedExercise.reps}</span>
               </p>
             )}
             {selectedExercise.sets && (
               <p>
-                📦 Sets: <span className="font-semibold">{selectedExercise.sets}</span>
+                Sets: <span className="font-semibold">{selectedExercise.sets}</span>
               </p>
             )}
             {selectedExercise.timer && (
               <p>
-                ⏱️ Timer: <span className="font-semibold">{timerSeconds}s</span>
+                Timer: <span className="font-semibold">{timerSeconds}s</span>
               </p>
             )}
           </div>
