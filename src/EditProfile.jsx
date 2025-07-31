@@ -226,7 +226,6 @@ const EditProfile = () => {
               </div>
             </section>
 
-            {/* Fitness Preferences Section */}
             <section className="space-y-4">
               <h3 className="text-xl font-semibold">Fitness Preferences</h3>
               <div>
