@@ -170,7 +170,6 @@ const EditProfile = () => {
               ></textarea>
             </section>
 
-            {/* Photos Section */}
             <section className="space-y-4">
               <h3 className="text-xl font-semibold">Profile Photos</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
