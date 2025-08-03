@@ -157,7 +157,6 @@ const EditProfile = () => {
               </div>
             </section>
 
-            {/* Bio Section */}
             <section>
               <label className="block mb-1 text-sm font-medium">Bio</label>
               <textarea
