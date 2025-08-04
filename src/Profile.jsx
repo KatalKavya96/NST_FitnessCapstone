@@ -66,7 +66,6 @@ const Profile = () => {
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
 
-          {/* Profile section */}
           <div className="relative px-6 pb-8">
             <div className="flex flex-col sm:flex-row items-center sm:items-end sm:space-x-6 -mt-20 mb-6">
               <img
