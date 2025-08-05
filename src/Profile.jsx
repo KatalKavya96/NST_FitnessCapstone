@@ -54,7 +54,6 @@ const Profile = () => {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-900'} py-10 px-4 transition-colors duration-200`}>
       <div className="max-w-4xl mx-auto">
         <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl shadow-xl overflow-hidden transition-colors duration-200`}>
-          {/* Header with gradient background */}
           <div className="h-48 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative">
             {profile.coverPhoto && (
               <img
