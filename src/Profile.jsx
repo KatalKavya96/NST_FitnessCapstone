@@ -219,7 +219,6 @@ const Profile = () => {
               />
             </div>
 
-            {/* Recent Activity */}
             <div className="mt-8">
               <h2 className="text-2xl font-bold mb-4">Recent Activity</h2>
               <div className={`rounded-lg ${isDarkMode ? 'bg-gray-700' : 'bg-gray-50'} p-4 shadow-inner`}>
