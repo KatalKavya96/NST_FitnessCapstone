@@ -92,7 +92,6 @@ const Profile = () => {
               </div>
             </div>
 
-            {/* Bio with better visibility */}
             {profile.bio && (
               <div className={`mt-6 p-6 rounded-lg ${isDarkMode ? 'bg-gray-700' : 'bg-gray-50'} shadow-inner`}>
                 <p className="text-lg leading-relaxed whitespace-pre-wrap">{profile.bio}</p>
