@@ -42,7 +42,7 @@ const videos = [
     url: 'https://www.youtube.com/embed/v7AYKMP6rOE',
   },
 ];
-
+// Exercise
 const ExerciseVideos = () => {
   return (
     <div className="min-h-screen bg-white px-6 py-12">
