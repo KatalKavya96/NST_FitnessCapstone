@@ -71,4 +71,3 @@ const ExerciseVideos = () => {
 
 export default ExerciseVideos;
 
-// gin
