@@ -64,5 +64,4 @@ const AnimatedContainer = ({
     </m.div>
   );
 };
-// named
 export default AnimatedContainer;
